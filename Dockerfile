@@ -16,4 +16,8 @@ RUN rm android-sdk_r23.0.1-linux.tgz
 RUN android list sdk --all
 ADD install_android_sdk.sh install_android_sdk.sh
 RUN sh install_android_sdk.sh
-
+RUN npm install -g react-native-cli
+RUN mkdir /app
+WORKDIR app
+ADD package.json package.json
+RUN npm install
